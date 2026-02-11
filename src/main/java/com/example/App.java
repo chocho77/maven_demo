@@ -1,27 +1,33 @@
-package com.example;
-
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class App {
     public static void main(String[] args) {
-        
-        // Създаваме обект Gson
-        Gson gson = new Gson();
+        // Използваме GsonBuilder за "красив" JSON (подреден на нов ред)
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        // Създаваме обикновена Java Map (данни)
         Map<String, String> data = new HashMap<>();
         data.put("Status", "Success");
-        data.put("Message", "Maven работи отлично с Java 25!");
-        data.put("Library", "Gson");
+        data.put("Message", "Кирилицата вече работи!");
+        data.put("File", "config.json");
 
-        // Превръщаме обекта в JSON стринг
         String json = gson.toJson(data);
 
-        // Принтираме резултата
-        System.out.println("--- Твоят първи JSON от Maven ---");
+        // Записване във файл
+        try (FileWriter writer = new FileWriter("result.json", StandardCharsets.UTF_8)) {
+            writer.write(json);
+            System.out.println("--- Файлът 'result.json' беше създаден успешно! ---");
+        } catch (IOException e) {
+            System.out.println("Грешка при запис: " + e.getMessage());
+        }
+        
+        // Принтираме и в конзолата за проверка
         System.out.println(json);
     }
 }
