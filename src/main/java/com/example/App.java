@@ -1,3 +1,5 @@
+package com.example;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -31,3 +33,4 @@ public class App {
         System.out.println(json);
     }
 }
+
