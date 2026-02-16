@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,6 +40,7 @@ interface UserRepository extends JpaRepository<User, Long> {}
 // Това прави данните достъпни в браузъра
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "http://localhost:4200") // Разрешава достъп от Angular приложението
 class UserController {
     private final UserRepository repository;
     UserController(UserRepository repository) { this.repository = repository; }
