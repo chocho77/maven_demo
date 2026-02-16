@@ -1,1 +1,11 @@
+/target/
+*.class
+.settings/
+.plugin_settings/
+.classpath
+.project
+.idea/
+*.iml
+*.log
+.vscode/
 
