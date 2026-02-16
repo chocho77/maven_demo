@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.persistence.Entity;
@@ -45,5 +46,13 @@ class UserController {
     @GetMapping
     public List<User> getUsers() {
         return repository.findAll();
+    }
+
+    @GetMapping("/add")
+    public User addUser(@RequestParam String name, @RequestParam String email) {
+        User newUser = new User();
+        newUser.name = name;
+        newUser.email = email;
+        return repository.save(newUser);        
     }
 }

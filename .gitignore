@@ -8,4 +8,11 @@
 *.iml
 *.log
 .vscode/
+# Angular frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.vscode/
+frontend/*.log
+frontend/.editorconfig
 
