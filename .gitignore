@@ -1,16 +1,1 @@
-# Maven - тук се намира компилираният код и .jar файловете
-target/
 
-# VS Code - специфични настройки за редактора
-.vscode/
-.settings/
-.project
-.classpath
-
-# Лог файлове и временни файлове
-*.log
-*.tmp
-
-# Операционна система
-Thumbs.db
-.DS_Store
